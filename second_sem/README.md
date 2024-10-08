@@ -7,6 +7,7 @@
 3. [Exercise 2: Introduction to $z$-transform](https://www.overleaf.com/read/hvjvxwqphnqy#494be3)
 4. [Exercise 3: Bilinear transformation](https://www.overleaf.com/read/krrcqxbxswkj#2a6a1a)
 5. [Exercise 4: Digital controller design](https://www.overleaf.com/read/njyqfqckgtvp#b720ac)
+6. [Questions](https://www.overleaf.com/read/tpvbybbjxpmt#8c6743)
 
 ## Advanced sensory systems and sensor data processing
 
