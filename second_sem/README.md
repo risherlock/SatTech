@@ -11,7 +11,7 @@
 
 ## Advanced sensory systems and sensor data processing
 
-1. [Lecture notes on advanced sensory systems and sensor data processing](https://www.overleaf.com/read/whnxvjhfkvnn#13bf6b)
+1. [Lecture notes on advanced sensory systems and sensor data processing](https://www.overleaf.com/read/thbhpzzynqvj#4fbd45)
 2. [Exercise 2: Transformation matrices](https://www.overleaf.com/read/hgzppyjvxrrv#fb1567)
 3. [Exercise 3: Inertial sensor data processing](https://www.overleaf.com/read/yqdnmnxhhkvc#7a4e43)
 4. [Exercise 4: GNSS](https://www.overleaf.com/read/hjhbkdyjvnkh#14cbed)
