@@ -1,0 +1,147 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, bm}
+\usepackage{enumitem, hyperref}
+
+\title{Exercises in Lie Theory}
+\date{November 5, 2024}
+\author{Rishav}
+
+\begin{document}
+
+\maketitle
+\hrule
+\tableofcontents
+\newpage
+
+\section{Topology}
+
+\section{Differential calculus}
+
+\begin{enumerate}[start=9]
+  \item Add to your personal mathematical tool box the following
+  \paragraph{Definition.}
+
+  \begin{enumerate}
+    \item Let $E$ be a normed space and $f:U\subset E\rightarrow\mathbb{R}$ be differentiable so that D$f(u)\in L(E,\mathbb{R})=E^{*}$. In this case we sometimes write d$f(u)$ for D$f(u)$ and call d$f$ the \textit{differential} of $f$. Thus d$f:U\rightarrow E^{*}$.
+
+    \item Let $(E, \langle.,.\rangle)$ be a Hilbert space and $f:U\subset E\rightarrow\mathbb{R}$ be differentiable. The \textit{gradient} of $f$ is the map grad$f=\nabla f:U\rightarrow E$ defined (implicitly) by $\langle\nabla f(u), e\rangle:=\text{d}f(u)\cdot e$, meaning the linear map d$f(u)$ applied to the vector $e$ (directional derivative).
+  \end{enumerate}
+
+  \item
+
+  \item Endow the vector space $\mathbb{R}^{n\times n}$ (matrix space) with the inner product $\langle A,B\rangle:=\text{tr}(A^{\top}B)$. Consider the smooth function $f:\text{GL}(\mathbb{R}^{n})\rightarrow\mathbb{R}$ defined by $X\mapsto\text{tr}(X^{-1})$ and compute grad$f(X)$. (
+
+  {\footnotesize Hint: Do not even try to work with partial derivatives.}
+
+  \item For $g:\mathbb{R}^{n\times n}\rightarrow\mathbb{R}^{n\times n}$, defined by $X\mapsto X^{3}$, for $H\in\mathbb{R}^{n\times n}$, compute the directional derivative D$g(X)\cdot H$.
+
+  {\footnotesize Hint: Ditto.}
+\end{enumerate}
+
+\section{Smooth manifolds}
+
+\begin{enumerate}[start=13]
+  \item
+  \item
+  \item
+  \item \label{item:16} Show that the set GL$_{n}(\mathbb{R})$ of real invertible $n\times n$ matrices is a differentiable manifold.
+
+  \item Similar to Exercise \ref{item:16} show that the set $\mathbb{R}^{n\times m}_{*}$, i.e., the set of all full rank real rectangular matrices with $n\leq m$ forms a $nm$-dimensional submanifold of the vector space $\mathbb{R}^{n\times m}\cong\mathbb{R}^{nm}$.
+\end{enumerate}
+
+\section{Tangent structures}
+
+\begin{enumerate}[start=19]
+  \item
+  \item Let
+  $$
+  g:\mathbb{R}^{2}\rightarrow\mathbb{R}^{3},\quad
+  \begin{bmatrix}x\\y\end{bmatrix}\mapsto
+  \begin{bmatrix}x^{2}y+y^{2}\\x-2y^{3}\\ye^{x}\end{bmatrix}.
+  $$
+
+  \begin{enumerate}
+    \item Compute $T_{\left[\begin{smallmatrix}x\\y\end{smallmatrix}\right]}g$ and $T_{\left[\begin{smallmatrix}0\\0\end{smallmatrix}\right]}g\cdot\left(4\dfrac{\partial}{\partial x}-\frac{\partial}{\partial y}\right)$ via the algebraic approach.
+    \item Calculate the conditions that the constants $\lambda,\mu,\nu\in\mathbb{R}$ must satisfy for the vector
+    $$
+    \left(\lambda\frac{\partial}{\partial x}+\mu\frac{\partial}{\partial y}+\nu\frac{\partial}{\partial z}\right)
+    \Bigg|_{g\left(\left[\begin{smallmatrix}0\\0\end{smallmatrix}\right]\right)}
+    $$
+    to be the image of some vector by $Tg$.
+  \end{enumerate}
+
+  \item Consider
+  $$
+  f:\mathbb{R}^{2}\rightarrow\mathbb{R},\quad
+  \begin{bmatrix}x\\y\end{bmatrix}\mapsto
+  x^{3}+xy+y^{3}+1.
+  $$
+
+  \begin{enumerate}
+    \item Using the algebraic approach compute the tangent map
+    $$
+    Tf:T_{\left[\begin{smallmatrix}x\\y\end{smallmatrix}\right]}\mathbb{R}^{2}
+    \rightarrow T_{f\left(\left[\begin{smallmatrix}x\\y\end{smallmatrix}\right]\right)}\mathbb{R}.
+    $$
+
+    \item Which of the points
+    $p\in\left\{\begin{bmatrix}0\\0\end{bmatrix}, \begin{bmatrix}1/3\\1/3\end{bmatrix}, \begin{bmatrix}-1/3\\-1/3\end{bmatrix}\right\}$
+    is $Tf$ injective or surjective at?
+  \end{enumerate}
+
+  \item Consider the smooth map
+  $$
+  f_{\theta}:\mathbb{R}^{2\times2}\rightarrow\mathbb{R}^{2\times2},\quad
+  \begin{bmatrix}x&z\\y&t\end{bmatrix}=:X\mapsto A_{\theta}\cdot X,\quad\text{with}\quad A_{\theta}:=
+  \begin{bmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{bmatrix}.
+  $$
+
+  \begin{enumerate}
+    \item Compute the tangent map T$f_{\theta}$ via the algebraic approach.
+
+    {\footnotesize Hint: It may be easier to proceed by first identifying $\mathbb{R}^{2\times2}\cong\mathbb{R}^{4}$ in a suitable way, but one certainly can go ahead without doing so, as well.}
+
+    \item Compute $Tf_{\theta}V$ with
+    $$
+    V:=\cos\theta\frac{\partial}{\partial x}-\sin\theta\frac{\partial}{\partial y}+
+    \cos\theta\frac{\partial}{\partial z}-\cos\theta\frac{\partial}{\partial t}.
+    $$
+  \end{enumerate}
+
+  \item
+
+  \item Consider the differentiable map
+  $$
+  \varphi:\mathbb{R}^{4}\rightarrow\mathbb{R}^{2},\quad
+  \begin{bmatrix}x\\y\\z\\t\end{bmatrix}\mapsto
+  \begin{bmatrix}x^{2}+y^{2}+z^{2}+t^{2}-1\\x^{2}+y^{2}+z^{2}+t^{2}-2y-2z+5\end{bmatrix}=:
+  \begin{bmatrix}u\\v\end{bmatrix}
+  $$
+
+  \begin{enumerate}
+    \item Find the (i) set of points of $\mathbb{R}^{4}$ where $\varphi$ is not a submersion, and (ii) its image.
+    \item Compute a basis for ker$T\varphi\Big|_{[0\,1\,2\,0]^{\top}}$.
+    \item Compute the image of the tangent vector $[0\,1\,2\,0]^{\top}\in T_{[0\,1\,2\,0]^{\top}}\mathbb{R^{4}}$ by the tangent of $\varphi$.
+    \item Compute the image of the covector $(\text{d}u+2\text{d}v)\Big|_{\begin{smallmatrix}-1\\5\end{smallmatrix}}\in T^{*}_{\begin{smallmatrix}-1\\5\end{smallmatrix}}\mathbb{R}^{2}$ by the pull-back $\phi^{*}$, choosing point $\begin{bmatrix}0&0&0&0&0\end{bmatrix}^{\top}\in\varphi^{-1}\left\{\begin{bmatrix}-1\\5\end{bmatrix}\right\}.$
+  \end{enumerate}
+
+  \item Consider the differentiable map
+  $$
+  X:=xy\frac{\partial}{\partial x}+x^{2}\frac{\partial}{\partial z},\quad Y:=y\frac{\partial}{\partial y},
+  $$
+  and the map $f:\mathbb{R}^{3}\rightarrow\mathbb{R}$, defined by $f(x,y,z):=x^{2}y$. Compute the followings for $p=\begin{bmatrix}1\\1\\0\end{bmatrix}$
+
+  \begin{enumerate}
+    \item $[X,Y]\Big|_{p}$
+    \item $[fX]\Big|_{p}$
+    \item $(Xf)\Big|_{p}$
+    \item $Tf\cdot X|_{p}$
+  \end{enumerate}
+
+
+\end{enumerate}
+
+\section{Lie theory}
+
+\end{document}
