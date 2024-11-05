@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb}
+\usepackage{hyperref, enumitem}
+\usepackage[margin=1in]{geometry}
+
+\title{Differential Geometry\\Homework 1}
+\date{November 4, 2024}
+\author{Rishav}
+
+\begin{document}
+
+\maketitle
+\hrule
+
+\section{Open subsets of the real line}
+\label{section:one}
+
+Let $\O\neq O\subseteq\mathbb{R}$ be an open connected subset. Prove that $O$ is homeomorphic to $\mathbb{R}$.
+
+\section{Connected components}
+\label{section:two}
+
+Let $M$ be a topological space with connected components $\{C_{j}\}_{j\in J}$.
+
+\begin{enumerate}[label=\roman*.]
+  \item We declare a subset $O$ of the disjoing union $\bigsqcup_{j\in J}C_{j}$ to be open if $O\cap C_{j}$ if open for all indices $j\in J$. Show that this defines a topology.
+
+  \item Prove that $$M\cong\bigsqcup_{j\in J}C_{j}$$ is a topological space.
+
+  \item Let $N$ be another topological space with connected components $\{C'_{j}\}_{j\in J'}$. Conclude that the spaces $M$ and $N$ are homeomorphic iff there is a bijection $$\phi:J\rightarrow J'$$ such that $$C_{j}\cong C'_{\phi(j)}\quad\text{for all }j\in J.$$
+\end{enumerate}
+
+\section{The Lindelöf property}
+
+Let $M$ be a second countable topologival space. Recall that an open covering $\{U_{\alpha}\}_{\alpha\in J}$ of $M$ is a collection of open subsets $U_{\alpha}\subseteq M$ such that $$M=\bigcup_{\alpha\in J}U_{\alpha}.$$
+
+\begin{enumerate}[label=\roman*.]
+  \item Prove that every open covering of $M$ admits a countable subcover.
+
+  {\footnotesize Hint: Do not spoil yourself and prove this on your own.}
+
+  \item Does the converse of above hold?
+\end{enumerate}
+
+\section{Classification of 1-manifolds}
+
+Consider the unit circle $$\mathbb{S}^{1}:=\{z\in\mathbb{C}:|z|=1\}$$ endowed with the subspace topology inherited from $\mathbb{C}$. The goal of this exercise if to prove that every connected topological manifold of dimension one is homeomorphic to $\mathbb{R}$ or $\mathbb{S}^{1}$. By virtue of Exercise \ref{section:two} this already suffices to classify all topological 1-manifolds.
+
+\begin{enumerate}[label=\roman*.]
+  \item Show that $\mathbb{S}^{1}$ is a topological manifold, which is not homeomorphic to $\mathbb{R}$.
+\end{enumerate}
+
+Let $M$ be a connected topological 1-manifold such that there exists open subsets $O_{1}, O_{2}\subseteq M$ covering $M$ such that $O_{1}\cong\mathbb{R}\cong O_{2}$.
+
+\begin{enumerate}[label=\roman*., start=3]
+  \item Assume moreover that the intersection $O_{1}\cup O_{2}$ is connected. Probe that $M$ is homeomorphic to $\mathbb{R}$.
+
+  {\footnotesize Hint: Study the image of $M\backslash O_{2}$ under the homeomorphism $\phi_{1}:O_{1}\rightarrow\mathbb{R}$. Choose a point $p_{0}\in O_{1}\cap O_{2}$ and glue the homeomorphisms $\phi_{1}$ and $\phi_{2}:O_{2}\rightarrow\mathbb{R}$ at $p_{0}$.} 
+
+  \item Assume now that the intersection $O_{1}\cup O_{2}$ is disconnected. Prove that $M$ is homeomorphic to $\mathbb{S}^{1}$.
+
+  {\footnotesize First assert that this means that $O_{1}\cup O_{2}$ has precisely two connected components. Afterwards, you can either mimic the proof of ii or consider $M\backslash\{p_{0}\}$ for a suitably chosen point $p_{0}\in O_{1}\cup O_{2}$. Use what you have already shown to conclude $M\backslash\{p_{0}\}\cong\mathbb{R}$ and construct a homeomorphism between $M$ and $\mathbb{S}^{1}$ from this insight.}
+
+  \item Let now $M$ be a topological space admitting an open covering $\{O_{n}\}_{n\in N}$ such that $$O_{m}\subseteq O_{n+1}\quad\text{and}\quad O_{n}\cong\mathbb{R}$$ for all $n\in\mathbb{N}$. Show that $M\cong\mathbb{R}$.
+
+  {\footnotesize Hint: Utilize the consderable freedom Exercise \ref{section:one} affords you.}
+
+  \item Conclude that every connected topological 1-manifold is homeomorphic to $\mathbb{R}$ or $\mathbb{S}^{1}$.
+\end{enumerate}
+\end{document}
