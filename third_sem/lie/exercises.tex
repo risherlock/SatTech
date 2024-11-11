@@ -1,6 +1,6 @@
 \documentclass{article}
 \usepackage[margin=1in]{geometry}
-\usepackage{amsmath, amssymb, bm}
+\usepackage{amsmath, amssymb, bm, amsthm}
 \usepackage{enumitem, hyperref}
 \usepackage[breakable, skins]{tcolorbox}
 
@@ -26,9 +26,14 @@
   \item Give an example that in a general a family of open sets is not closed under infinite intersections.
 
   \begin{ans_box}
-    Let us consider $\mathbb{R}$ under the metric d$(x,y)=|x-y|$ with open sets $U_{n}=\left(-\dfrac{1}{n},\dfrac{1}{n}\right)$.$$\bigcap_{n=1}^{\infty}U_{n}=\bigcap_{n=1}^{\infty}\left(-\dfrac{1}{n},\dfrac{1}{n}\right)=\{0\}$$
+    Let us consider $\mathbb{R}$ under the metric d$(x,y)=|x-y|$ with open sets $U_{n}=\left(-\dfrac{1}{n},\dfrac{1}{n}\right)$.
+    $$
+    \bigcap_{n=1}^{\infty}U_{n}=\bigcap_{n=1}^{\infty}\left(-\dfrac{1}{n},\dfrac{1}{n}\right)=\{0\}
+    $$
 
-  Intersection of the open sets $U_{n}$ becomes narrower with increase in $n$ and approaches $\{0\}$ as $n\rightarrow\infty$. We know that a subset $U\subset\mathbb{R}$ is said to be open if, for every point $x\in U$, there exists an $\varepsilon>0$ such that the open ball $B(x,\varepsilon)=\{y\in\mathbb{R}\,|\,\text{d}(x,y)<\varepsilon\}$. We cannot create such open ball within a singleton $\{0\}$. Therefore $U_{n}$ is not closed under infinite intersection.
+  Intersection of the open sets $U_{n}$ becomes narrower with increase in $n$ and approaches $\{0\}$ as $n\rightarrow\infty$.\medskip
+
+  We know that a subset $U\subset\mathbb{R}$ is said to be open if, for every point $x\in U$, there exists an $\varepsilon>0$ such that the open ball $B(x,\varepsilon)=\{y\in\mathbb{R}\,|\,\text{d}(x,y)<\varepsilon\}$. We cannot create such open ball within a singleton $\{0\}$. Therefore $U_{n}$ is not closed under infinite intersection.
   \end{ans_box}
 
   \item Give an example that a bijective continuous function $f:E\rightarrow F$ between topological spaces is not necessarily a homeomorphism.
@@ -38,6 +43,56 @@
 
   $f$, being an identity map, is clearly a bijection and also continuous because open sets in $E$ is also an open set in $F$. However, $f^{-1}:F\rightarrow E$ is not continuous because not every pre-image of open sets in $F$ is an open set in $E$ under $f$. For example, $[0,1)\in F$ is not an open set in $E$.
   \end{ans_box}
+
+  \item Give an example of connected topological space which is not path connected.
+
+  \begin{ans_box}
+    Consider
+    \begin{equation*}
+      \begin{split}
+        Y&=\{(0,y)\in\mathbb{R}^{2}|y\in[-1,1]\},\\
+        Z&=\{(x,\sin\frac{\pi}{x})\in\mathbb{R}^{2}|x\in(0,1]\}, \text{ and}\\
+        X&=Y\cup Z.
+      \end{split}
+    \end{equation*}
+
+    Euclidean topology is induced on $X$ by inclusion on $\mathbb{R}^{2}$. \medskip
+
+    $Z$ is connected space because it is an image of connected set $(0,1]$ under continuous sine function. $X$ is closure of $Z$ in $\mathbb{R}^{2}$ which makes $X$ a connected space. \medskip
+
+    Let $\gamma:[0,1]\mapsto X$ be a path in $X$ that begins at $y\in Y$ and ends at $z\in Z$ with $\gamma(0)=y$ and $\gamma(1)=z$. Existence of such a map $\gamma$ would make $X$ a path-connected space. This can be contradicted if we show that $\gamma([0,1])\subseteq Y$ i.e. path is confined to $Y$.\medskip
+
+    $\gamma^{-1}(Y)$ is certainly nonempty as it contains at least one element i.e. $0$. Suppose $t\in\gamma^{-1}(Y)$ and $\varepsilon>0$ with a value which ensure $\gamma\left((t-\varepsilon,\,t+\varepsilon)\right)$ is contained in a closed disc $D$ centered at $\gamma(t)$ and radius $r$. The intersection of this disc with $X$ consists of two intervals; i) closed interval in $Y$ and ii) closed segment of curve in $Z$ i.e. $$D\cup X=(D\cap Y)\cup(D\cap Z).$$
+
+    We know that $(D\cap Y)\cap(D\cap Z)=\emptyset$, therefore $(D\cap Y)$ and $(D\cap Z)$ are separated from one another. Since $\gamma(t)\in D\cap Y$ and $(t-\varepsilon,\,t+\varepsilon)$ is connected, the image should be connected as well. This forces all the elements of $\gamma\left((t-\varepsilon,\,t+\varepsilon)\right)$ to be in $(D\cap Y)$ which implies $\gamma([0,1])\subseteq Y$.
+  \end{ans_box}
+
+\item  Give an example of a connected topological space which is not locally connected.
+
+\begin{ans_box}
+  Let us take connected space $X$ in above exercise. To show that $X$ is not locally connected, we have to find at least a point in $p\in X$ that does not contain a connected open neighborhood.
+
+  Suppose an open disc centered on $p=(0,1)\in Y\in X$ with radius $r$. Since $Y$ is a closed set and $p$ is the edge of the line, there is no open connected open neighborhood of $p$.
+\end{ans_box}
+
+\item Recall the
+
+  \textbf{Definition.} A topological space $X$ is \textit{totally disconnected} if the connected components of $X$ are single points.
+
+  Give an example of a totally disconnected topological space.
+
+  \begin{ans_box}
+    Suppose $A=\{x\in\mathbb{Q}|x<\sqrt{2}\}=(-\infty,\sqrt{2})\cap\mathbb{Q}$ where the open segment $(-\infty,\sqrt{2})\in\mathbb{R}$ is open in $\mathbb{R}$ so $A$ is open in the subspace topology on $\mathbb{Q}$. Similarly $B=\{x\in\mathbb{Q}|x>\sqrt{2}\}=(\sqrt{2},+\infty,)\cap\mathbb{Q}$ is open in $\mathbb{Q}$ too. These open sets are disjoint and their union is $\mathbb{Q}$, therefore $\mathbb{Q}$ is not connected.\medskip
+
+  Between any two rational numbers there exists an irrational number. Therefore $x,y\in\mathbb{Q}$ belong to different components of $\mathbb{Q}$. Indeed the components of $\mathbb{Q}$ are  singletons which, by definition, implies that $\mathbb{Q}$ is totally disconnected.
+  \end{ans_box}
+  \item Recall the
+
+  \textbf{Definition.} Let $X$ be a topological space. A subset $S\subset X$ is said to be \textit{dense} in $X$ if, for each $x\in X$ and each neighborhood $U$ of $x$, there is a point $s\in S$ s.t. $s\in U$.
+
+  Give an example of a dense subset of $\mathbb{R}$ (with usual topology.)
+
+  \item Let $X$ be the space of continuous functions on the interval $I:=[0,1]$. Show that $$\text{d}(f,g):=\max_{x\in I}|f(x)-g(x)|$$ defines a metric on $X$.
 \end{enumerate}
 
 \section{Differential calculus}
