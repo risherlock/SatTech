@@ -102,9 +102,27 @@
   \paragraph{Definition.}
 
   \begin{enumerate}
-    \item Let $E$ be a normed space and $f:U\subset E\rightarrow\mathbb{R}$ be differentiable so that D$f(u)\in L(E,\mathbb{R})=E^{*}$. In this case we sometimes write d$f(u)$ for D$f(u)$ and call d$f$ the \textit{differential} of $f$. Thus d$f:U\rightarrow E^{*}$.
+    \item Let $E$ be a normed space and $f:U\subset E\rightarrow\mathbb{R}$ be differentiable so that D$f(u)\in L(E,\mathbb{R})=E^{*}$. In this case we sometimes write d$f(u)$ for D$f(u)$ and call d$f$ the \textit{differential} of $f$. Thus $\text{d}f:U\rightarrow E^{*}$.
+
+    \begin{ans_box}
+      \textit{What does it mean to compute derivative of real-valued function $f$ evaluated at point $u$? What kind of object is it?}\medskip
+
+      It is a linear map from the normed space to the field $\mathbb{R}$. A linear map being scalar-valued suggests that $f$ is a \textit{linear functional}, also known as \textit{covecter}, that belongs to the \textit{dual space} of the normed space. Dual space, by definition, is the set of linear functionals.\medskip
+
+      $E$ in real vector space $\mathbb{R}^{n}$ is usually considered as a set of column vectors, whereas an element in its dual space is a row vector. Row vector acting on a column vector gives us scalar in the field. This operation is not to be confused with inner products because inner products are defined on space and dual space is not involved. However, it is to be noted that finite dimensional real vector spaces and their dual spaces are isomorphic.\medskip
+
+      Usually in differential geometry we forget about partial derivatives because if a normed vector space is a matrix space (matrix spaces are vector spaces), then we go into trouble if we want to compute partial derivatives as we have two indices of matrix to take care of. $\text{d}f$ is called differential of $f$ which is different from the differential of a function evaluated a point $u$ i.e. $\text{d}f(u)$. $\text{d}f(u)$, by definition, is a linear mapping that one can apply to a direction defined by an element on the domain. This linear functional act on $E$, therefore we can apply it to the element of $E$. This is expressed as $$\text{d}f(u):h\rightarrow \text{d}f(u)h\quad\text{ where }h\in E.$$
+
+      $\text{d}f(u)$ is a linear map that maps a direction to a the directional derivative. It must be noted that $\text{d}f$, the differential of $f$, certainly not linear. If we have nonlinear function, the derivative of differential is not linear.\medskip
+
+      $\text{d}f$ is a mapping which one can evaluate on a open subset $U$ of normed space to the dual of the space. It is an important concept and we should always try to question, \textit{"What kind of mapping is it?"} when thinking about derivatives.
+    \end{ans_box}
 
     \item Let $(E, \langle.,.\rangle)$ be a Hilbert space and $f:U\subset E\rightarrow\mathbb{R}$ be differentiable. The \textit{gradient} of $f$ is the map grad$f=\nabla f:U\rightarrow E$ defined (implicitly) by $\langle\nabla f(u), e\rangle:=\text{d}f(u)\cdot e$, meaning the linear map d$f(u)$ applied to the vector $e$ (directional derivative).
+
+    \begin{ans_box}
+      $f$ is real-valued and differential as before, but with added structure.
+    \end{ans_box}
   \end{enumerate}
 
   \item
