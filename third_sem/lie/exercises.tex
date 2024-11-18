@@ -172,9 +172,77 @@
 
   \item
 
-  \item Endow the vector space $\mathbb{R}^{n\times n}$ (matrix space) with the inner product $\langle A,B\rangle:=\text{tr}(A^{\top}B)$. Consider the smooth function $f:\text{GL}(\mathbb{R}^{n})\rightarrow\mathbb{R}$ defined by $X\mapsto\text{tr}(X^{-1})$ and compute grad$f(X)$. (
+  \item Endow the vector space $\mathbb{R}^{n\times n}$ (matrix space) with the inner product $\langle A,B\rangle:=\text{tr}(A^{\top}B)$. Consider the smooth function $f:\text{GL}(\mathbb{R}^{n})\rightarrow\mathbb{R}$ defined by $X\mapsto\text{tr}(X^{-1})$ and compute grad$f(X)$.
 
   {\footnotesize Hint: Do not even try to work with partial derivatives.}
+
+  \begin{ans_box}
+    We are given a matrix space endowed with Euclidean or Forbenius inner product.
+    \begin{equation*}
+      \begin{split}
+        \langle A,B\rangle&=\text{tr}(A^{\top}B)\\
+        &=\sum_{i,j=1}^{n}a_{ji}b_{ji}
+      \end{split}
+    \end{equation*}
+
+    It is an Euclidean inner product because, in principal, we can stack the column of $A$ and $B$ as a long vector $\tilde{A}$ and $\tilde{B}$. In doing so $\langle A,B\rangle$ is equal to the Euclidean norm of $\tilde{A}$ and $\tilde{B}$.\medskip
+
+    $f:\text{GL}_{n}(\mathbb{R})\to R$ is a set of real invertible $n\times n$ matrices defined as $X\mapsto\text{tr}(X^{-1})$. $\text{GL}_{n}$ is an open and dense subset of a vector space $\mathbb{R}^{n\times n}$ because any $n\times n$ matrix can be arbitrary and accurately approximated by invertible matrix. i.e.
+  $$
+  f:\text{GL}_{n}(\mathbb{R})\subset\mathbb{R}^{n\times n}\to\mathbb{R}\\
+  $$
+
+  $\text{d}f$ is a mapping where we plug in invertible matrices and end up with a linear mapping $L$ which further maps the elements of the vector space to the reals. In other words, we evaluate the derivative of $f$ at a point in vector space, i.e. a matrix $X$, and we get linear functional $L$ where we can plug in direction $H$ (again a matrix in the vector space) to get an element in $\mathbb{R}$. $\text{d}f(X)$ takes direction and maps it to directional derivative. i.e.\medskip
+  \begin{equation*}
+    \begin{split}
+      \text{d}f&:\text{GL}(\mathbb{R}^{n})\to L(\mathbb{R}^{n\times n},\mathbb{R}),\quad X\mapsto\text{d}f(x)\text{ and}\\
+      \text{d}f(X)&:\mathbb{R}^{n\times n}\to \mathbb{R},\quad H\mapsto\text{d}f(x)\cdot H.
+    \end{split}
+  \end{equation*}
+
+  Since we are dealing with a matrix space, trying to compute $\nabla f$ using partial derivatives is a no go. We must use the general definition of the gradient
+    $$
+    \langle\nabla f(X),H\rangle:=\text{d}f(X)\cdot H
+    $$
+
+  We will evaluate the right hand side of above equation and compare it with the left hand side to separate out $\nabla f$ using the given definition of the inner product.
+
+  \begin{equation}
+    \begin{split}
+      \label{eqn:9a}
+      \text{d}f(x)\cdot H&=\text{d}(\text{tr}(X^{-1}))\cdot H\\
+      &=\text{d}(\text{tr}\circ X^{-1})\cdot H\\
+      &=\text{d}(\text{tr})\circ\text{d}(X^{-1})\cdot H\\
+      &=\text{tr}\circ\text{d}(X^{-1})\cdot H\\
+      &=\text{tr}(\text{d}(X^{-1})\cdot H)
+    \end{split}
+  \end{equation}
+
+  Above simplifications are made with following observations: The map $f$ is composition of taking inverse and trace. The derivative of composition of functions is composition of individual derivatives. The trace is linear and bounded so its derivative is equal to itself everywhere.\medskip
+
+  Now we have to evaluate $\text{d}(X^{-1})\cdot H$. We know that invertible matrices fulfills $XX^{-1}=I$ independent of dimension where $I$ is identity in the space of $X$. We can take derivative of the expression in LHS along $H$ (directional derivative) using product rule for non commutative matrices. Derivative of LHS, a constant, is zero.
+  \begin{equation}
+    \begin{split}
+      \label{eqn:9b}
+      \text{d}(XX^{-1})\cdot H&=(\text{d}X\cdot H)X^{-1}+X\left(\text{d}(X^{-1})\cdot H\right)=0\\
+      \implies\text{d}(X^{-1})\cdot H&=-X^{-1}(\text{d}X\cdot H)X^{-1}\\
+      &=-X^{-1}HX^{-1}
+    \end{split}
+  \end{equation}
+
+  We have used the fact that the derivative of $X$ is identity mapping as $\text{d}X:X\mapsto X$. Therefore, the derivative of $X$ in direction $H$ is $H$ i.e. $\text{d}X\cdot H=H$.\medskip
+
+  Finally, we plug in the expression computed in Eqn.(\ref{eqn:9b}) and plug it in Eqn.(\ref{eqn:9a}) noting the fact that cyclic reordering of matrices inside the trace is allowed.
+
+  \begin{equation*}
+    \begin{split}
+      \text{d}f(x)\cdot H&=-\text{tr}(X^{-1}HX^{-1})\\
+      &=-\text{tr}(X^{-2}H)\\
+      &=\langle-(X^{-2})^{\top},H\rangle\quad\because\langle A,B\rangle=\text{tr}(A^{\top}B)\\
+      \implies\nabla f(x)&=-(X^{-2})^{\top}
+    \end{split}
+  \end{equation*}
+  \end{ans_box}
 
   \item For $g:\mathbb{R}^{n\times n}\rightarrow\mathbb{R}^{n\times n}$, defined by $X\mapsto X^{3}$, for $H\in\mathbb{R}^{n\times n}$, compute the directional derivative D$g(X)\cdot H$.
 
