@@ -107,21 +107,66 @@
     \begin{ans_box}
       \textit{What does it mean to compute derivative of real-valued function $f$ evaluated at point $u$? What kind of object is it?}\medskip
 
-      It is a linear map from the normed space to the field $\mathbb{R}$. A linear map being scalar-valued suggests that $f$ is a \textit{linear functional}, also known as \textit{covecter}, that belongs to the \textit{dual space} of the normed space. Dual space, by definition, is the set of linear functionals.\medskip
+      $f$ is a linear map from a normed space to the field $\mathbb{R}$. Since the linear map is scalar-valued, it implies that $f$ is a \textit{linear functional}, also known as a \textit{covector}, which belongs to the \textit{dual space} of the normed space. By definition, the dual space is the set of all linear functionals on the normed space.\medskip
 
-      $E$ in real vector space $\mathbb{R}^{n}$ is usually considered as a set of column vectors, whereas an element in its dual space is a row vector. Row vector acting on a column vector gives us scalar in the field. This operation is not to be confused with inner products because inner products are defined on space and dual space is not involved. However, it is to be noted that finite dimensional real vector spaces and their dual spaces are isomorphic.\medskip
+      In the real vector space $\mathbb{R}^{n}$, $E$ is typically considered as a set of column vectors, while an element of its dual space is a row vector. A row vector acting on a column vector yields a scalar in the field. This operation should not be confused with the inner product, since inner products are defined within the space itself, and the dual space is not directly involved. Furthermore, it is important to note that in finite-dimensional real vector space and its dual space are isomorphic.\medskip
 
-      Usually in differential geometry we forget about partial derivatives because if a normed vector space is a matrix space (matrix spaces are vector spaces), then we go into trouble if we want to compute partial derivatives as we have two indices of matrix to take care of. $\text{d}f$ is called differential of $f$ which is different from the differential of a function evaluated a point $u$ i.e. $\text{d}f(u)$. $\text{d}f(u)$, by definition, is a linear mapping that one can apply to a direction defined by an element on the domain. This linear functional act on $E$, therefore we can apply it to the element of $E$. This is expressed as $$\text{d}f(u):h\rightarrow \text{d}f(u)h\quad\text{ where }h\in E.$$
+      Usually in differential geometry, we often overlook partial derivatives because when a normed vector space is treated as a matrix space (which is also a vector space), complications arise when computing partial derivatives due to the two indices of the matrix. This is because computing partial derivatives with respect to both indices can lead to a more complex structure as we should differentiate with respect to both rows and columns simultaneously.  In contrast, in differential geometry, we often avoid these complications by using the language of \textit{differentials} and \textit{gradients}, which abstract away the need for explicit partial derivatives in cases like normed vector spaces. Instead of working directly with partial derivatives, we work with linear functionals and the dual space, which simplifies the process of differentiation in higher dimensions and more general spaces.\medskip
 
-      $\text{d}f(u)$ is a linear map that maps a direction to a the directional derivative. It must be noted that $\text{d}f$, the differential of $f$, certainly not linear. If we have nonlinear function, the derivative of differential is not linear.\medskip
+      $\text{d}f$ is a map that can be evaluated on an open subset $U$ of a normed space and yields an element in the dual space of that space i.e. it maps an space to its dual. $$\text{d}f:U\subset E\to E^{*}$$
 
-      $\text{d}f$ is a mapping which one can evaluate on a open subset $U$ of normed space to the dual of the space. It is an important concept and we should always try to question, \textit{"What kind of mapping is it?"} when thinking about derivatives.
+      $\text{d}f(u)$ is a linear map that acts on a direction defined by an element of the domain, say $h$, and maps it to the corresponding directional derivative; $\text{d}f(u)\cdot h$. It is linear functional as it belongs to the dual space $E^{*}$, therefore, when applied to an element of vector space $E$, it produces an scalar. This is expressed as
+      \begin{equation*}
+        \begin{split}
+          \text{d}f(u)&:E\to \mathbb{R}\\
+          \text{d}f(u)&:h\mapsto \text{d}f(u)\cdot h\quad\text{where }u,h\in E.
+        \end{split}
+      \end{equation*}
+
+    Clearly, $\text{d}f$ is different from $\text{d}f(u)$ because they are different maps. Though $\text{d}f(u)$ is a linear map, $\text{d}f$ is not itself linear. It is a family of linear maps parameterized by the point $u$. It is only when we evaluate $\text{d}f$ at a point, say $u$, do we get a linear map $\text{d}f(u)$. This is a crucial concept, and when thinking about derivatives, we should always ask ourselves, \textit{"What kind of mapping is it?"}.
     \end{ans_box}
 
     \item Let $(E, \langle.,.\rangle)$ be a Hilbert space and $f:U\subset E\rightarrow\mathbb{R}$ be differentiable. The \textit{gradient} of $f$ is the map grad$f=\nabla f:U\rightarrow E$ defined (implicitly) by $\langle\nabla f(u), e\rangle:=\text{d}f(u)\cdot e$, meaning the linear map d$f(u)$ applied to the vector $e$ (directional derivative).
 
     \begin{ans_box}
-      $f$ is real-valued and differential as before, but with added structure.
+      $f$ is real-valued and differential of vector, as before, but with an added structure on the space i.e. it not just a normed space but the one with inner product.\medskip
+
+      In the theory of ordinary differential equations (ODEs), there is a common idea that the gradient and the derivative are, in some sense, the same. However, this equivalence is generally \textit{not true}. The gradient is also not the transpose of the derivative (or differential); its definition depends heavily on the choice of the inner product. The notion of gradient from ODEs makes sense in $\mathbb{R}^{n}$ with the usual Euclidean inner product, where the dual space $(\mathbb{R}^{n})^{*}$ can be naturally identified with $\mathbb{R}^{n}$ due to isomorphism between them. In this specific case, the gradient aligns with the vector of partial derivatives. However, this is just a special case of a more general concept of the gradient, which does not apply universally.\medskip
+
+    In the broader mathematical framework, different spaces often have different inner products. In such contexts, the ordinary concepts from calculus become awkward or insufficient, and the gradient must be redefined in terms of the specific inner product of the space. This highlights the importance of generalizing these notions beyond the classical Euclidean setting.\medskip
+
+    The gradient of $f$, denoted $\nabla f$, is defined the unique vector field such that its dot product with any vector $e$ at each point $u$ is the directional derivative of $f$ along $e$. In other words, the inner product of $\nabla f$ evaluated at point $u$ with any vector $e$ is, by definition, the derivative of $f$ evaluated at $u$ in the direction $e$. i.e.
+    $$
+    \langle\nabla f(u), e\rangle:=\text{d}f(u)\cdot e
+    $$
+    $f$ being a differentiable function makes this relation well-defined.\medskip
+
+    $u$ is a point in the space where the function $f$ is defined, and it represents the location where the gradient $\nabla f$ and the differential $df$ are evaluated. $e$ is a vector which represents a direction in which we measure the rate of change of the function $f$ at the point $u$.\medskip
+
+    A Hilbert space has a non-degenerate inner product, and since we are dealing with a finite-dimensional space, the \textit{Riesz representation theorem} applies. This theorem implies that the linear functional $\text{d}f(u)\cdot e$, which represents the directional derivative of $f$ at $u$ in the direction $e$, can be expressed as the inner product of $e$ with a unique vector, denoted $\nabla f$. In this case, $\nabla f$ is the gradient. The non-degeneracy of the inner product ensures the uniqueness of $\nabla f$, making this a rigorous definition of the gradient.\medskip
+
+    Expressing the gradient as a vector of partial derivatives, as is often done in engineering, can be misleading because it obscures the deeper relationship between the gradient and the inner product structure of the space. This inner product-based definition highlights the geometric and functional significance of the gradient.\medskip
+
+    \paragraph{Relationship between gradient and derivative}
+    The derivative is dual to the gradient. At each point, the derivative is a covector, a linear functional, or a cotangent vector that expresses how much the scalar output of a function $f$ changes with an infinitesimal change in the input vector in the vector space. The gradient at a point is a tangent vector that represents the direction and magnitude of the steepest infinitesimal change in the scalar output with respect to the vector input. The derivative is a map from the tangent space to the scalar field, while the gradient is an element of the tangent space at a point.\medskip
+
+    In $\mathbb{R}^n$, $\nabla f$ and $\text{d}f$ are expressed as a column and a row vector respectively, with the same components but transpose of each other. Although they have the same components, they are different mathematical objects. i.e.
+
+    \begin{equation*}
+      \begin{split}
+        \nabla f(p)&=
+        \begin{bmatrix}
+          \dfrac{\partial}{\partial x_{1}}(p)&\hdots&\dfrac{\partial}{\partial x_{n}}(p)
+        \end{bmatrix}^{\top}\text{ and}\\
+        \text{d}f(p)&=
+        \begin{bmatrix}
+          \dfrac{\partial}{\partial x_{1}}(p)&\hdots&\dfrac{\partial}{\partial x_{n}}(p)\\
+        \end{bmatrix}\\
+        \implies\langle\nabla f(p), v\rangle&=\text{d}f(p)\cdot v=\dfrac{\partial}{\partial x_{1}}(p)+\hdots+\dfrac{\partial}{\partial x_{n}}(p)
+      \end{split}
+    \end{equation*}
+
+    where $p,v\in\mathbb{R}^{n}$.
     \end{ans_box}
   \end{enumerate}
 
