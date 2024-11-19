@@ -3,6 +3,7 @@
 \usepackage{amsmath, amssymb, bm, amsthm}
 \usepackage{enumitem, hyperref}
 \usepackage[breakable, skins]{tcolorbox}
+\usepackage{graphicx}
 
 \newtcolorbox{ans_box}[0]{arc=0mm, enhanced, frame hidden, breakable}
 
@@ -157,11 +158,11 @@
         \nabla f(p)&=
         \begin{bmatrix}
           \dfrac{\partial}{\partial x_{1}}(p)&\hdots&\dfrac{\partial}{\partial x_{n}}(p)
-        \end{bmatrix}^{\top}\text{ and}\\
+        \end{bmatrix}^{\top}\in\mathbb{R}^{n}\text{ and}\\
         \text{d}f(p)&=
         \begin{bmatrix}
           \dfrac{\partial}{\partial x_{1}}(p)&\hdots&\dfrac{\partial}{\partial x_{n}}(p)\\
-        \end{bmatrix}\\
+        \end{bmatrix}\in(\mathbb{R}^{n})^{*}\\
         \implies\langle\nabla f(p), v\rangle&=\text{d}f(p)\cdot v=\dfrac{\partial}{\partial x_{1}}(p)+\hdots+\dfrac{\partial}{\partial x_{n}}(p)
       \end{split}
     \end{equation*}
@@ -232,8 +233,7 @@
 
   We have used the fact that the derivative of $X$ is identity mapping as $\text{d}X:X\mapsto X$. Therefore, the derivative of $X$ in direction $H$ is $H$ i.e. $\text{d}X\cdot H=H$.\medskip
 
-  Finally, we plug in the expression computed in Eqn.(\ref{eqn:9b}) and plug it in Eqn.(\ref{eqn:9a}) noting the fact that cyclic reordering of matrices inside the trace is allowed.
-
+  Finally, we plug in the expression computed in Eqn.(\ref{eqn:9b}) to the Eqn.(\ref{eqn:9a}) in order to extract $\nabla f(x)$. The cyclic invariance property of the trace is utilized to simplify the derivative.
   \begin{equation*}
     \begin{split}
       \text{d}f(x)\cdot H&=-\text{tr}(X^{-1}HX^{-1})\\
@@ -242,11 +242,46 @@
       \implies\nabla f(x)&=-(X^{-2})^{\top}
     \end{split}
   \end{equation*}
+
+  In this exercise, we observe the potential danger of assuming that the gradient is simply the transpose of the differential, as is often done in $\mathbb{R}^{n}$. Here, such an assumption fails because we are working in a matrix space equipped with a different inner product, where the concept of a vector transpose does not directly apply.
   \end{ans_box}
 
   \item For $g:\mathbb{R}^{n\times n}\rightarrow\mathbb{R}^{n\times n}$, defined by $X\mapsto X^{3}$, for $H\in\mathbb{R}^{n\times n}$, compute the directional derivative D$g(X)\cdot H$.
 
   {\footnotesize Hint: Ditto.}
+
+  \begin{ans_box}
+    The function $g$ cubes the input square matrix, making it matrix-valued. Unlike the previous problem, we cannot leverage the cyclic invariance of the trace. In matrix spaces, multiplication is non-commutative, so expansions involving powers of $X$ must carefully preserve the order of terms. For instance, $g(A+B)=(A+B)^{3}$, which will be useful later in the computation, should be expanded using the distributive property while carefully preserving the order of multiplication.\medskip
+    \begin{equation*}
+      \begin{split}
+        \label{eqn:12a}
+        (A+B)^{3}&=(A+B)^{3}\\
+        &=(A+B)(A+B)(A+B)\\
+        &=(A+B)(A^{2}+AB+BA++B^{2})\\
+        &=A^{3}+A^{2}B+ABA+AB^{2}+BA^{2}+BAB+B^{2}A+B^{3}
+      \end{split}
+    \end{equation*}
+
+    To compute derivative, we perturb the argument in vector space linearly using a scalar parameter $\varepsilon$. We then take the derivative with respect to the $\varepsilon$, evaluated at $\varepsilon=0$. This process is called first order approximation.
+  \begin{equation*}
+    \begin{split}
+      \text{d}g(x)\cdot H&:=\frac{\text{d}}{\text{d}\varepsilon}g(X+\varepsilon H)\bigg|_{\varepsilon=0}\\
+      &=\frac{\text{d}}{\text{d}\varepsilon}(X+\varepsilon H)^{3}\bigg|_{\varepsilon=0}\\
+      &=\frac{\text{d}}{\text{d}\varepsilon}X^{3}+\varepsilon X^{2}H+\varepsilon XHX+\varepsilon^{2} XH^{2}+
+      \varepsilon HX^{2}+\varepsilon^{2}HXH+B^{2}X+\varepsilon^{3}H^{3}\bigg|_{\varepsilon=0}\\
+      &=X^{2}H+XHX+HX^{2}
+    \end{split}
+  \end{equation*}
+  \end{ans_box}
+
+  Compute $\text{d}g(x)\cdot H$ using partial derivative for $\mathbb{R}^{2\times2}$ to get in touch with the contrast between the two methods.
+
+  \begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{assets/ex9.pdf}
+  \end{figure}
+  \begin{ans_box}
+  \end{ans_box}
 \end{enumerate}
 
 \section{Smooth manifolds}
