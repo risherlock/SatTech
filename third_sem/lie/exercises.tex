@@ -231,9 +231,9 @@
     \end{split}
   \end{equation}
 
-  We have used the fact that the derivative of $X$ is identity mapping as $\text{d}X:X\mapsto X$. Therefore, the derivative of $X$ in direction $H$ is $H$ i.e. $\text{d}X\cdot H=H$.\medskip
+  We have utilized the fact that the derivative of $X$ is the identity mapping; $\text{d}X:X\mapsto X$. Consequently, the derivative of $X$ in the direction of $H$ is simply $H$ i.e. $\text{d}X\cdot H=H$.\medskip
 
-  Finally, we plug in the expression computed in Eqn.(\ref{eqn:9b}) to the Eqn.(\ref{eqn:9a}) in order to extract $\nabla f(x)$. The cyclic invariance property of the trace is utilized to simplify the derivative.
+  Finally, we substitute the the expression derived in Eqn.(\ref{eqn:9b}) into Eqn.(\ref{eqn:9a}) to compute $\nabla f(x)$. The cyclic invariance property of the trace, which results in $\text{tr}(ABC)=\text{tr}(CAB)=\text{tr}(BCA)$, is utilized to simplify the derivative.
   \begin{equation*}
     \begin{split}
       \text{d}f(x)\cdot H&=-\text{tr}(X^{-1}HX^{-1})\\
@@ -275,19 +275,79 @@
   \end{ans_box}
 
   Compute $\text{d}g(x)\cdot H$ using partial derivative for $\mathbb{R}^{2\times2}$ to get in touch with the contrast between the two methods.
-
-  \begin{figure}
-    \centering
-    \includegraphics[scale=0.5]{assets/ex9.pdf}
-  \end{figure}
-  \begin{ans_box}
-  \end{ans_box}
 \end{enumerate}
 
 \section{Smooth manifolds}
 
 \begin{enumerate}[start=13]
   \item
+  \begin{enumerate}
+    \item Consider the open subsets $U$ and $V$ of the unit circle $\mathbb{S}^{1}$ of $\mathbb{R}^{2}$ given by
+    \item
+    \item
+    \item For $\mathbb{S}^{1}$ consider the \textit{stereographic projection} with x-axis image, i.e. $\{(U_{N},\varphi_{N}), (U_{S},\varphi_{S})\}$ with
+    $$
+    U_{N}:=\{(x,y)\in\mathbb{S}^{1}|y\neq1\},\quad U_{S}:=\{(x,y)\in\mathbb{S}^{1}|y\neq1\}
+    $$
+
+    Here $\varphi:U_{N}\to\mathbb{R}$ and $\varphi:U_{S}\to\mathbb{R}$ is given by
+    $$
+    \varphi_{N}:=\frac{x}{1-y},\quad\varphi_{S}(x,y):=\frac{x}{1+y}
+    $$
+
+    respectively. Prove that $\{(U_{N},\varphi_{N}),(U_{S},\varphi_{S})\}$ is a $\mathcal{C}^{\infty}$ on $\mathbb{S}^{1}$
+
+    \begin{figure}
+      \centering
+      \label{fig:ex9}
+      \includegraphics[scale=0.5]{assets/ex9.pdf}
+      \caption{Stereographic projection of $\mathbb{S}^{1}$ into a x-axis.}
+    \end{figure}
+
+    \begin{ans_box}
+      Intersection of straight line joining North (South) pole to any point $p$ on circle excluding the North (North) pole represents the projection of $p$ on the x-axis which is denoted by $\varphi_{N}(p)$. As the point $p$ approaches North pole, $\varphi_{N}(p)$ tends to either $+\infty$ or $-\infty$ as limit based on the direction of approach. Since the subset $U_{N}$ does not contain the North pole, the image of $\varphi_{N}$ is $\mathbb{R}\setminus\{-\infty,+\infty\}$ which is an open set.\medskip
+
+      We have mappings from open subsets $U_{N}$ and $U_{S}$ of manifold $\mathbb{S}^{1}$ to an open subset of vector space which is homeomorphism. We can map whole of $U_{N}$ into the whole of x-axis ($\mathbb{R}$).  Its like spreading the ends of $U_{N}$ from the punctured North pole and stretching it over the x-axis. Same holds true for $U_{S}$. This is also the reason why (stereographic) maps on atlas is distorted as we move towards the poles. If we ever plan an expedition to the North pole, we should not carry the chart where North pole is not presented i.e. $U_{N}$. In such case, the map is distorted that moving a bit away from North pole takes us directly to the South. However, homeomorphism alone this is not enough to show that this is an atlas, or that these chart covers whole $\mathbb{S}^{1}$.\medskip
+
+      If we have an atlas of Germany, one chart covers Bavaria and a bit of Baden-Württemberg. Similarly, next chart covers Baden-Württemberg something of Bavaria. This is done in such a way that such chart forms an atlas i.e. for any point on Germany, you are not stranded but are able to navigate through the country. In our case, we should be able to span whole space of $\mathbb{S}^{1}$ by switching the two charts. Mathematically, we have to show that the composition $\varphi_{N}\circ\varphi_{S}^{-1}$ is smooth. This suggests that, starting at any point on x-axis, we should be able to reach $U_{S}\in\mathbb{S}^{1}$ as governed by the map $\varphi_{S}^{-1}$ and back to the x-axis via the map $\varphi_{N}$. If this is not satisfied for all the points, we can conclude that these charts do not cover the entire circle.\medskip
+
+      \textbf{Change of coordinates}\medskip
+
+      Coordinates, by definition, are ways to express points on a manifold in terms of coordinates in open subset of the vector space. Therefore, we describe the points on $\mathbb{S}^{1}$ using the points the coordinate system of the real axis. We have to make sure there is intersection between charts; only then $\varphi_{N}\circ\varphi_{N}^{-1}$ is smooth.\medskip
+
+      We have to evaluate $\varphi_{S}\circ\varphi_{N}^{-1}$, so let us evaluate $\varphi_{s}^{-1}$. We know that
+      $$
+      \varphi_{N}:p\mapsto\frac{x}{1-y}\quad\text{and}\quad x^{2}+y^{2}=1.
+      $$
+
+      Substitution leads us to
+      \begin{equation*}
+        \begin{split}
+          x^{2}+y^{2}=1\\
+          p^{2}(1-y)^{2}=1\\
+          y^{2}(p^{2}+1)-2p^{2}y+(p^{2}-1)=0\\
+          \implies y=\frac{2p^{2}\pm\sqrt{4p^{4}-4(p^{2}+1)(p^{2}-1)}}{2(p^{2}+1)}=\frac{p^{2}\pm1}{2(p^{2}+1)}.
+        \end{split}
+      \end{equation*}
+
+      $y=1$ is directly rejected because we know that all the points of real line are not mapped to $y=1$.
+      \begin{equation*}
+        \therefore y=\frac{p^{2}-1}{p^{2}+1}\implies x=p\left(1-\frac{p^{2}-1}{p^{2}+1}\right)=\frac{2p}{p^{2}+1}
+      \end{equation*}
+
+      Finally, we can evauate
+      \begin{equation*}
+        \begin{split}
+          \varphi_{S}\circ\varphi^{-1}_{N}&=\varphi_{S}\left(\varphi^{-1}(x,y)\right)\\
+          &=\varphi_{S}\left(\varphi^{-1}\left(\frac{2p}{p^{2}+1},\frac{p^{2}-1}{p^{2}+1}\right)\right)\\
+          &=\frac{1}{p}\quad p\in\mathbb{R}\slash\{0\}
+        \end{split}
+      \end{equation*}
+
+      which is $\mathcal{C}^{\infty}$, and so is its inverse. Therefore, the charts are smooth on $\mathbb{S}^{1}$.
+    \end{ans_box}
+
+  \end{enumerate}
   \item
   \item
   \item \label{item:16} Show that the set GL$_{n}(\mathbb{R})$ of real invertible $n\times n$ matrices is a differentiable manifold.
