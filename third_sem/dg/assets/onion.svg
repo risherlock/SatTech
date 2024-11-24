@@ -27,9 +27,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="2.993266"
-     inkscape:cx="361.47806"
-     inkscape:cy="91.371766"
+     inkscape:zoom="4"
+     inkscape:cx="316.75"
+     inkscape:cy="127.125"
      inkscape:window-width="1877"
      inkscape:window-height="1011"
      inkscape:window-x="43"
@@ -74,7 +74,7 @@
      inkscape:groupmode="layer"
      id="layer1">
     <path
-       style="opacity:1;vector-effect:non-scaling-stroke;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.264583;stroke-opacity:1;-inkscape-stroke:hairline"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.07;stroke-opacity:1;stroke-dasharray:none"
        id="path1"
        sodipodi:type="arc"
        sodipodi:cx="31.836044"
@@ -88,7 +88,7 @@
        sodipodi:open="true"
        transform="rotate(90)" />
     <path
-       style="opacity:1;vector-effect:non-scaling-stroke;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.264583;stroke-opacity:1;-inkscape-stroke:hairline"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.07;stroke-opacity:1;stroke-dasharray:none"
        id="path1-4"
        sodipodi:type="arc"
        sodipodi:cx="31.836044"
@@ -102,7 +102,7 @@
        sodipodi:open="true"
        transform="rotate(90)" />
     <path
-       style="opacity:1;vector-effect:non-scaling-stroke;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.264583;stroke-opacity:1;-inkscape-stroke:hairline"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.07;stroke-dasharray:none;stroke-opacity:1"
        id="path1-4-8"
        sodipodi:type="arc"
        sodipodi:cx="31.836044"
@@ -113,8 +113,8 @@
        sodipodi:end="4.709318"
        sodipodi:arc-type="arc"
        d="m 31.791046,-101.10692 a 15,18 0 0 1 15.04493,17.9456 15,18 0 0 1 -14.9544,18.054235 15,18 0 0 1 -15.045462,-17.94496 15,18 0 0 1 14.953866,-18.054875"
-       sodipodi:open="true"
-       transform="rotate(90)" />
+       transform="rotate(90)"
+       sodipodi:open="true" />
     <g
        transform="matrix(0.352778,0,0,0.352778,103.10687,31.648455)"
        ns2:version="1.10.2"
@@ -305,7 +305,7 @@
        ns2:stroke-to-path="0"
        ns2:jacobian_sqrt="0.352778"
        id="g8-6"
-       inkscape:export-filename="onion.png"
+       inkscape:export-filename="onion.pdf"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96">
       <defs
