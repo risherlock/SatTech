@@ -1,0 +1,150 @@
+
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx, hyperref, amsmath, amssymb, amsthm}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+
+\title{Introduction to\\Lie Theory}
+\author{based on lectures\\by Prof. Knut Hüper\vspace{1.5in}\\Rishav}
+\date{Npvember 28z, 2024}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{corollary}{Corollary}[section]
+
+\begin{document}
+\maketitle
+
+\newpage
+\tableofcontents
+\newpage
+
+\section{Topological groups and Lie groups}
+
+\begin{definition}[Topological group]
+  A topological group $G$ is a group which is, at the same time, a topological space such that
+$$
+G\times G\to G,\quad(g,h)\mapsto g\cdot h^{-1}
+$$
+
+is continuous, where $G\times G$ has the canonical product topology determined by the topology of $G$.
+\end{definition}
+
+It is to be noted that a topological group is required to be a topological space, not a topological manifold.
+
+\begin{lemma}
+  A group $G$ is a topological group iff it is, at the same time, a topological space such that the multiplication and inverse maps,
+  \begin{equation*}
+    \begin{split}
+      G\times G&\to G\text{ where }(g,h)\mapsto g\cdot h\text{ and}\\
+      G&\to G\text{ where }g\mapsto g^{-1},
+    \end{split}
+  \end{equation*}
+  are both continuous.
+\end{lemma}
+
+\begin{proof}
+\end{proof}
+
+\begin{definition}[Lie group]
+  A Lie group $G$ is a group endowed with the structure of a $\mathcal{C}^{\infty}$ manifold such that the map
+  $$
+  G\times G\to G,\quad(g,h)\mapsto g\cdot h^{-1}
+  $$
+
+  is smooth, where $G\times G$ has the canonical structure of a product manifold determined by the smooth structure of $G$.
+\end{definition}
+
+\begin{remark}
+  The Lie groups that we consider are (almost) always of finite direction.
+\end{remark}
+
+\begin{remark}
+  Throughout the note, by smooth manifold, we mean $\mathcal{C}^{\infty}$ smooth unless stated otherwise.
+\end{remark}
+
+\begin{example}Following are some example of Lie groups.
+  \begin{enumerate}
+    \item Euclidean space $\mathbb{R}^{n}$ is an $n$-dimensional Lie group under addition with inversion being the change of sign. We know that addition and its inverse are both linear and therefore smooth. This Lie group is connected, noncompact and abelian.
+    \item Euclidean space $\mathbb{R}^{3}$ carries another non-abelian Lie group under matrix multiplication with nilpotent matrix defined as
+    $$
+    \text{nil}^{3}:=
+    \left\{
+      \begin{bmatrix}1&x&y\\0&1&z\\0&0&1\end{bmatrix}
+      \in\mathbb{R}^{3\times3}\,\Big|\, x,y,z\in\mathbb{R}
+    \right\}
+    $$
+
+    It is also called nilpotent Lie group or Heisenberg group.
+  \item The circle or 1-sphere
+  $$
+  \mathbb{S}^{1}:=\{z\in\mathbb{C}\,|\,|z|=1\}
+  $$
+  is a 1-dimensional connected, compact, and abelian Lie group under multiplication induced from $\mathbb{C}$.
+
+  Multiplication on $\mathbb{C}$ is quadratic and inversion on $\mathbb{C}^{\times}:=\mathbb{C}\backslash\{0\}$ is a rational function in real and imaginary parts, thus smooth. Both maps restrict to smooth maps on the embedded submanifold $\mathbb{S}^{1}\subset\mathbb{C}$.
+
+  \item The set of rotation matrices in 2D is a Lie group under multiplication:
+  $$
+  \text{SO}_{2}:=
+  \left\{
+    \begin{bmatrix}\sin\alpha&-\sin\alpha\\\sin\alpha&\cos\alpha\end{bmatrix}
+    \in\mathbb{R}^{2\times2}\,\Big|\,\alpha\in\mathbb{R}
+  \right\}.
+  $$
+
+  As a manifold $$\text{SO}_{2}\cong\mathbb{R}/2\pi\mathbb{Z}\cong\mathbb{S}^{1}.$$
+  \end{enumerate}
+\end{example}
+
+We are now interested in generating new Lie group from known ones. Important examples for such constructions are products and sub groups.
+
+\begin{proposition}[Product Lie group]
+  Let $G$, $H$ be Lie groups. Then the product manifold $G\times H$ with the direct product structure as a group is a Lie group called \textit{product Lie group}.
+\end{proposition}
+
+\begin{proof}
+  \begin{equation*}
+    \begin{split}
+  G\times H\to G\times H,&\quad(g,h)\mapsto(g^{-1},h^{-1})\text{ and}\\
+  (G\times H)\times(G\times H)\to G\times H,&\quad\left((g_{1},h_{1}),(g_{2},h_{2})\right)\mapsto(g_{1}g_{2},h_{1}h_{2})
+    \end{split}
+  \end{equation*}
+
+  are smooth.
+\end{proof}
+
+\begin{example}[n-torus]
+  The $n$-torus
+  $$
+  T^{n}:=\underbrace{\mathbb{S}^{1}\times\hdots\times\mathbb{S}^{1}}_{n\text{ factors}}.
+  $$
+
+  is a compact, abelian Lie group
+\end{example}
+
+\begin{definition}[Immersed Lie subgroup]
+  An \textit{immersed Lie subgroup} of $G$ is the image of an injective immersion $\phi:H\to G$ from a Lie group $H$ to $G$ such that $\phi$ is a group homomorphism.
+\end{definition}
+
+\begin{definition}[Embedded Lie subgroup]
+  An \textit{embedded Lie subgroup} of $G$ is the image of an injective immersion $\phi:H\to G$ from a Lie group $H$ to $G$ such that $\phi$ is a group homomorphism and a homeomorphism onto its image.
+\end{definition}
+
+\begin{remark}
+  The map $\phi$ is called \textit{Lie group immersion} or \textit{Lie group embedding} respectively.
+\end{remark}
+
+\begin{remark}
+  The difference between embedded and immersed Lie subgroups $\phi(H)\subset G$ is whether the topology on $\phi(H)$ coincides with the subspace topology on $\phi(H)$ inherited from $G$ or not.
+
+  The group structure on $\phi(H)$, however, is in both case the subgroup structure inherited from $G$.
+\end{remark}
+\end{document}
